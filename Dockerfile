@@ -6,3 +6,8 @@
 
 # Pull RStudio base image with Hadley packages
 FROM rocker/hadleyverse
+
+RUN mkdir -p /home/rstudio/wranglingf1data
+ADD wranglingf1data.Rproj /home/rstudio/wranglingf1data/wranglingf1data.Rproj
+ADD ergastR-core.R /home/rstudio/wranglingf1data/ergastR-core.R
+ADD ergastdb13.sqlite /home/rstudio/wranglingf1data/ergastdb13.sqlite
