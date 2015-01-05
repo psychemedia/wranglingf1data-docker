@@ -14,3 +14,5 @@ RUN chmod +w /home/rstudio/wranglingf1data
 
 ADD ergastR-core.R /home/rstudio/wranglingf1data/ergastR-core.R
 ADD ergastdb13.sqlite /home/rstudio/wranglingf1data/ergastdb13.sqlite
+
+ADD scraperwiki.sqlite /home/rstudio/wranglingf1data/scraperwiki.sqlite
