@@ -8,7 +8,7 @@
 FROM rocker/hadleyverse
 
 RUN mkdir -p /home/rstudio/wranglingf1data
-RUN chmod 777 /home/rstudio/wranglingf1data
+RUN chmod a+rw /home/rstudio/wranglingf1data
 
 #ADD wranglingf1data.Rproj /home/rstudio/wranglingf1data/wranglingf1data.Rproj
 
