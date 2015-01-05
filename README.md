@@ -35,4 +35,6 @@ Any work you have been doing in RStudio, and any files you have saved within the
 
 To restart the container, from the *boot2docker* command line, use the command `docker start f1dj`.
 
+
+*For examples on using R and RStudio to explore Formula One results data, see the __[Wrangling F1 Data With R](https://leanpub.com/wranglingf1datawithr/)__ book*
 	
