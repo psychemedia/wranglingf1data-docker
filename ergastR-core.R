@@ -58,8 +58,8 @@ getRacesDataByYear.URL=function(year,format='json'){
 #' @param integer race number in year
 #' @param character data format (json, XML)
 #' @return a URL
-getLapsByYearRace.URL=function(year,raceNum,format='json'){
-  paste(API_PATH,year,"/",raceNum,"/laps.",format,"?limit=2500",sep='')
+getLapsByYearRace.URL=function(year,raceNum,format='json',offset=0){
+  paste(API_PATH,year,"/",raceNum,"/laps.",format,"?limit=1000","&offset=",offset,sep='')
 }
 
 #' Get URL for laps by race-and-year-and-driver
@@ -71,7 +71,7 @@ getLapsByYearRace.URL=function(year,raceNum,format='json'){
 #' @param character data format (json, XML)
 #' @return a URL
 getLapsByYearRaceDriver.URL =function(year,raceNum,driverId,format='json'){
-  paste(API_PATH,year,"/",raceNum,"/drivers/",driverId,"/laps.",format,"?limit=2500",sep='')
+  paste(API_PATH,year,"/",raceNum,"/drivers/",driverId,"/laps.",format,"?limit=1000",sep='')
 }
 
 #' Get URL for qualifying
@@ -204,6 +204,11 @@ getLapsData.path=function(rd.laps){
 lapsData.df=function(year,raceNum,format='json'){
   rd.laps=getJSONbyURL(getLapsByYearRace.URL(year,raceNum))
   ld=getLapsData.path(rd.laps)
+  tmp=formatLapData(ld)
+  if (as.integer(rd.laps$MRData$total)>1000){
+    rd.laps=getJSONbyURL(getLapsByYearRace.URL(year,raceNum,offset=1000))
+    ld=c(ld,getLapsData.path(rd.laps))
+  }
   formatLapData(ld)
 }
 
