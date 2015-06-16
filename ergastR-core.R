@@ -320,6 +320,11 @@ qualiResultsParse.df=function(url){
       ))
     }
   }
+  
+  quali.results.data['Q1_rank']=rank(quali.results.data['Q1_time'],na.last='keep')
+  quali.results.data['Q2_rank']=rank(quali.results.data['Q2_time'],na.last='keep')
+  quali.results.data['Q3_rank']=rank(quali.results.data['Q3_time'],na.last='keep')
+  
   quali.results.data
 }
 
